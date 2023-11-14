@@ -9,7 +9,6 @@
 #Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
 #Examples: Container for s table
 #Background: List of steps run before each of the scenarios
-# # # [DEFINES STEPS THAT ARE COMMON TO ALL THE TESTS IN THE FEATURE FILE] 
 #""" (Doc Strings)
 #| (Data Tables)
 #@ (Tags/Labels):To group Scenarios
@@ -17,36 +16,35 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
+@tag
+Feature: Add new customer
+  I want to use this template for adding new customer 
 
-# # # [HERE ALL THE STEPS WRITTEN IN GHERKIN LANGUAGE]
-# # # [EACH FEATURE FILE SHOULD HAVE ONLY ONE FEATURE]
-# # # [UPPER CASE AND lOWER CASE LETTERS IN STEPS SHOULD BE SAME IN ALL SCENARIOS]
-
-Feature: Login
-  I want to use this template for LoginFeature file
-
-# Test Steps -
-  Scenario: Successful login with valid credentials
+  @tag1
+  Scenario: Add new customer functionality
     Given User launch chrome browser
     When User opens URL "https://admin-demo.nopcommerce.com/login"
     And User enters Email as "admin@yourstore.com" and password as "admin"
     And Click on Login
-    Then The page title should be "Dashboard / nopCommerce administration"
-    When User click on logout link
-    Then The page should be "Your store. Login"
+    Then User can see dashboard
+    When User click on Customers dropdown
+    And User click on Customers option
+    And User clicks on Add New button
+    Then User can see a form to add new customer page
+    When User enter customer info
+    And Click on save button
+    Then User can see confirmation message "The new customer has been added successfully."
     And Close browser
-
- Scenario Outline: Successful login with valid credentials by DDT
+    
+  Scenario: Search customer functionality
     Given User launch chrome browser
     When User opens URL "https://admin-demo.nopcommerce.com/login"
-    And User enters Email as "<email>" and password as "<password>"
+    And User enters Email as "admin@yourstore.com" and password as "admin"
     And Click on Login
-    Then The page title should be "Dashboard / nopCommerce administration"
-    When User click on logout link
-    Then The page should be "Your store. Login"
+    Then User can see dashboard
+    When User click on Customers dropdown
+    And User click on Customers option
+    And Enter customer email
+    When Click on search button
+    Then User should found email in search table
     And Close browser
- 
-Examples: 
-|email|password|
-|admin@yourstore.com|admin|
-|test@yourstore.com|admin|

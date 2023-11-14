@@ -1,0 +1,418 @@
+[{"line":24,"elements":[{"start_timestamp":"2023-11-11T19:09:36.731Z","line":28,"name":"Successful login with valid credentials","description":"","id":"login;successful-login-with-valid-credentials","type":"scenario","keyword":"Scenario","steps":[{"result":{"duration":2086206600,"status":"passed"},"line":29,"name":"User launch chrome browser","match":{"location":"stepDefinition.StepDef.user_launch_chrome_browser()"},"keyword":"Given "},{"result":{"duration":4064261000,"status":"passed"},"line":30,"name":"User opens URL \"https://admin-demo.nopcommerce.com/login\"","match":{"arguments":[{"val":"\"https://admin-demo.nopcommerce.com/login\"","offset":15}],"location":"stepDefinition.StepDef.user_opens_url(java.lang.String)"},"keyword":"When "},{"result":{"duration":520326900,"status":"passed"},"line":31,"name":"User enters Email as \"admin@yourstore.com\" and password as \"admin\"","match":{"arguments":[{"val":"\"admin@yourstore.com\"","offset":21},{"val":"\"admin\"","offset":59}],"location":"stepDefinition.StepDef.user_enters_email_as_and_password_as(java.lang.String,java.lang.String)"},"keyword":"And "},{"result":{"duration":5329733000,"status":"passed"},"line":32,"name":"Click on Login","match":{"location":"stepDefinition.StepDef.click_on_login()"},"keyword":"And "},{"result":{"duration":8950700,"status":"passed"},"line":33,"name":"The page title should be \"Dashboard / nopCommerce administration\"","match":{"arguments":[{"val":"\"Dashboard / nopCommerce administration\"","offset":25}],"location":"stepDefinition.StepDef.the_page_title_should_be(java.lang.String)"},"keyword":"Then "},{"result":{"duration":2390405700,"status":"passed"},"line":34,"name":"User click on logout link","match":{"location":"stepDefinition.StepDef.user_click_on_logout_link()"},"keyword":"When "},{"result":{"status":"passed"},"line":35,"name":"The page should be \"Your store. Login\"","match":{"arguments":[{"val":"\"Your store. Login\"","offset":19}],"location":"stepDefinition.StepDef.the_page_should_be(java.lang.String)"},"keyword":"Then "},{"result":{"duration":593152900,"status":"passed"},"line":36,"name":"Close browser","match":{"location":"stepDefinition.StepDef.close_browser()"},"keyword":"And "}]},{"start_timestamp":"2023-11-11T19:09:51.810Z","line":50,"name":"Successful login with valid credentials by DDT","description":"","id":"login;successful-login-with-valid-credentials-by-ddt;;2","type":"scenario","keyword":"Scenario Outline","steps":[{"result":{"duration":923973600,"status":"passed"},"line":39,"name":"User launch chrome browser","match":{"location":"stepDefinition.StepDef.user_launch_chrome_browser()"},"keyword":"Given "},{"result":{"duration":5469742900,"status":"passed"},"line":40,"name":"User opens URL \"https://admin-demo.nopcommerce.com/login\"","match":{"arguments":[{"val":"\"https://admin-demo.nopcommerce.com/login\"","offset":15}],"location":"stepDefinition.StepDef.user_opens_url(java.lang.String)"},"keyword":"When "},{"result":{"duration":325616000,"status":"passed"},"line":41,"name":"User enters Email as \"admin@yourstore.com\" and password as \"admin\"","match":{"arguments":[{"val":"\"admin@yourstore.com\"","offset":21},{"val":"\"admin\"","offset":59}],"location":"stepDefinition.StepDef.user_enters_email_as_and_password_as(java.lang.String,java.lang.String)"},"keyword":"And "},{"result":{"duration":4793852200,"status":"passed"},"line":42,"name":"Click on Login","match":{"location":"stepDefinition.StepDef.click_on_login()"},"keyword":"And "},{"result":{"duration":5983900,"status":"passed"},"line":43,"name":"The page title should be \"Dashboard / nopCommerce administration\"","match":{"arguments":[{"val":"\"Dashboard / nopCommerce administration\"","offset":25}],"location":"stepDefinition.StepDef.the_page_title_should_be(java.lang.String)"},"keyword":"Then "},{"result":{"duration":2426271900,"status":"passed"},"line":44,"name":"User click on logout link","match":{"location":"stepDefinition.StepDef.user_click_on_logout_link()"},"keyword":"When "},{"result":{"status":"passed"},"line":45,"name":"The page should be \"Your store. Login\"","match":{"arguments":[{"val":"\"Your store. Login\"","offset":19}],"location":"stepDefinition.StepDef.the_page_should_be(java.lang.String)"},"keyword":"Then "},{"result":{"duration":1078149000,"status":"passed"},"line":46,"name":"Close browser","match":{"location":"stepDefinition.StepDef.close_browser()"},"keyword":"And "}]},{"start_timestamp":"2023-11-11T19:10:06.877Z","line":51,"name":"Successful login with valid credentials by DDT","description":"","id":"login;successful-login-with-valid-credentials-by-ddt;;3","type":"scenario","keyword":"Scenario Outline","steps":[{"result":{"duration":1560612200,"status":"passed"},"line":39,"name":"User launch chrome browser","match":{"location":"stepDefinition.StepDef.user_launch_chrome_browser()"},"keyword":"Given "},{"result":{"duration":4416636400,"status":"passed"},"line":40,"name":"User opens URL \"https://admin-demo.nopcommerce.com/login\"","match":{"arguments":[{"val":"\"https://admin-demo.nopcommerce.com/login\"","offset":15}],"location":"stepDefinition.StepDef.user_opens_url(java.lang.String)"},"keyword":"When "},{"result":{"duration":290489200,"status":"passed"},"line":41,"name":"User enters Email as \"test@yourstore.com\" and password as \"admin\"","match":{"arguments":[{"val":"\"test@yourstore.com\"","offset":21},{"val":"\"admin\"","offset":58}],"location":"stepDefinition.StepDef.user_enters_email_as_and_password_as(java.lang.String,java.lang.String)"},"keyword":"And "},{"result":{"duration":1618229600,"status":"passed"},"line":42,"name":"Click on Login","match":{"location":"stepDefinition.StepDef.click_on_login()"},"keyword":"And "},{"result":{"error_message":"java.lang.AssertionError: expected [true] but found [false]\r\n\tat org.testng.Assert.fail(Assert.java:99)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:1037)\r\n\tat org.testng.Assert.assertTrue(Assert.java:45)\r\n\tat org.testng.Assert.assertTrue(Assert.java:55)\r\n\tat stepDefinition.StepDef.the_page_title_should_be(StepDef.java:51)\r\n\tat ✽.The page title should be \"Dashboard / nopCommerce administration\"(file:///C:/Users/Admin/git/cucumber-framework/CucumberFramework/./feature/LoginFeature.feature:43)\r\n","duration":34957300,"status":"failed"},"line":43,"name":"The page title should be \"Dashboard / nopCommerce administration\"","match":{"arguments":[{"val":"\"Dashboard / nopCommerce administration\"","offset":25}],"location":"stepDefinition.StepDef.the_page_title_should_be(java.lang.String)"},"keyword":"Then "},{"result":{"status":"skipped"},"line":44,"name":"User click on logout link","match":{"location":"stepDefinition.StepDef.user_click_on_logout_link()"},"keyword":"When "},{"result":{"status":"skipped"},"line":45,"name":"The page should be \"Your store. Login\"","match":{"arguments":[{"val":"\"Your store. Login\"","offset":19}],"location":"stepDefinition.StepDef.the_page_should_be(java.lang.String)"},"keyword":"Then "},{"result":{"status":"skipped"},"line":46,"name":"Close browser","match":{"location":"stepDefinition.StepDef.close_browser()"},"keyword":"And "}]}],"name":"Login","description":"  I want to use this template for LoginFeature file","id":"login","keyword":"Feature","uri":"file:feature/LoginFeature.feature","tags":[]}]
+
+
+
+[
+  {
+    "line": 24,
+    "elements": [
+      {
+        "start_timestamp": "2023-11-11T19:09:36.731Z",
+        "line": 28,
+        "name": "Successful login with valid credentials",
+        "description": "",
+        "id": "login;successful-login-with-valid-credentials",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2086206600,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "User launch chrome browser",
+            "match": {
+              "location": "stepDefinition.StepDef.user_launch_chrome_browser()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4064261000,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "User opens URL \"https://admin-demo.nopcommerce.com/login\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"https://admin-demo.nopcommerce.com/login\"",
+                  "offset": 15
+                }
+              ],
+              "location": "stepDefinition.StepDef.user_opens_url(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 520326900,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "User enters Email as \"admin@yourstore.com\" and password as \"admin\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"admin@yourstore.com\"",
+                  "offset": 21
+                },
+                {
+                  "val": "\"admin\"",
+                  "offset": 59
+                }
+              ],
+              "location": "stepDefinition.StepDef.user_enters_email_as_and_password_as(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 5329733000,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "Click on Login",
+            "match": {
+              "location": "stepDefinition.StepDef.click_on_login()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 8950700,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "The page title should be \"Dashboard / nopCommerce administration\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Dashboard / nopCommerce administration\"",
+                  "offset": 25
+                }
+              ],
+              "location": "stepDefinition.StepDef.the_page_title_should_be(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 2390405700,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "User click on logout link",
+            "match": {
+              "location": "stepDefinition.StepDef.user_click_on_logout_link()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "The page should be \"Your store. Login\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Your store. Login\"",
+                  "offset": 19
+                }
+              ],
+              "location": "stepDefinition.StepDef.the_page_should_be(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 593152900,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "Close browser",
+            "match": {
+              "location": "stepDefinition.StepDef.close_browser()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2023-11-11T19:09:51.810Z",
+        "line": 50,
+        "name": "Successful login with valid credentials by DDT",
+        "description": "",
+        "id": "login;successful-login-with-valid-credentials-by-ddt;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 923973600,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "User launch chrome browser",
+            "match": {
+              "location": "stepDefinition.StepDef.user_launch_chrome_browser()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 5469742900,
+              "status": "passed"
+            },
+            "line": 40,
+            "name": "User opens URL \"https://admin-demo.nopcommerce.com/login\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"https://admin-demo.nopcommerce.com/login\"",
+                  "offset": 15
+                }
+              ],
+              "location": "stepDefinition.StepDef.user_opens_url(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 325616000,
+              "status": "passed"
+            },
+            "line": 41,
+            "name": "User enters Email as \"admin@yourstore.com\" and password as \"admin\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"admin@yourstore.com\"",
+                  "offset": 21
+                },
+                {
+                  "val": "\"admin\"",
+                  "offset": 59
+                }
+              ],
+              "location": "stepDefinition.StepDef.user_enters_email_as_and_password_as(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4793852200,
+              "status": "passed"
+            },
+            "line": 42,
+            "name": "Click on Login",
+            "match": {
+              "location": "stepDefinition.StepDef.click_on_login()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 5983900,
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "The page title should be \"Dashboard / nopCommerce administration\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Dashboard / nopCommerce administration\"",
+                  "offset": 25
+                }
+              ],
+              "location": "stepDefinition.StepDef.the_page_title_should_be(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 2426271900,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "User click on logout link",
+            "match": {
+              "location": "stepDefinition.StepDef.user_click_on_logout_link()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "The page should be \"Your store. Login\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Your store. Login\"",
+                  "offset": 19
+                }
+              ],
+              "location": "stepDefinition.StepDef.the_page_should_be(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1078149000,
+              "status": "passed"
+            },
+            "line": 46,
+            "name": "Close browser",
+            "match": {
+              "location": "stepDefinition.StepDef.close_browser()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2023-11-11T19:10:06.877Z",
+        "line": 51,
+        "name": "Successful login with valid credentials by DDT",
+        "description": "",
+        "id": "login;successful-login-with-valid-credentials-by-ddt;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1560612200,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "User launch chrome browser",
+            "match": {
+              "location": "stepDefinition.StepDef.user_launch_chrome_browser()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4416636400,
+              "status": "passed"
+            },
+            "line": 40,
+            "name": "User opens URL \"https://admin-demo.nopcommerce.com/login\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"https://admin-demo.nopcommerce.com/login\"",
+                  "offset": 15
+                }
+              ],
+              "location": "stepDefinition.StepDef.user_opens_url(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 290489200,
+              "status": "passed"
+            },
+            "line": 41,
+            "name": "User enters Email as \"test@yourstore.com\" and password as \"admin\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"test@yourstore.com\"",
+                  "offset": 21
+                },
+                {
+                  "val": "\"admin\"",
+                  "offset": 58
+                }
+              ],
+              "location": "stepDefinition.StepDef.user_enters_email_as_and_password_as(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1618229600,
+              "status": "passed"
+            },
+            "line": 42,
+            "name": "Click on Login",
+            "match": {
+              "location": "stepDefinition.StepDef.click_on_login()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "error_message": "java.lang.AssertionError: expected [true] but found [false]\r\n\tat org.testng.Assert.fail(Assert.java:99)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:1037)\r\n\tat org.testng.Assert.assertTrue(Assert.java:45)\r\n\tat org.testng.Assert.assertTrue(Assert.java:55)\r\n\tat stepDefinition.StepDef.the_page_title_should_be(StepDef.java:51)\r\n\tat ✽.The page title should be \"Dashboard / nopCommerce administration\"(file:///C:/Users/Admin/git/cucumber-framework/CucumberFramework/./feature/LoginFeature.feature:43)\r\n",
+              "duration": 34957300,
+              "status": "failed"
+            },
+            "line": 43,
+            "name": "The page title should be \"Dashboard / nopCommerce administration\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Dashboard / nopCommerce administration\"",
+                  "offset": 25
+                }
+              ],
+              "location": "stepDefinition.StepDef.the_page_title_should_be(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 44,
+            "name": "User click on logout link",
+            "match": {
+              "location": "stepDefinition.StepDef.user_click_on_logout_link()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 45,
+            "name": "The page should be \"Your store. Login\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Your store. Login\"",
+                  "offset": 19
+                }
+              ],
+              "location": "stepDefinition.StepDef.the_page_should_be(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 46,
+            "name": "Close browser",
+            "match": {
+              "location": "stepDefinition.StepDef.close_browser()"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "Login",
+    "description": "  I want to use this template for LoginFeature file",
+    "id": "login",
+    "keyword": "Feature",
+    "uri": "file:feature/LoginFeature.feature",
+    "tags": []
+  }
+]

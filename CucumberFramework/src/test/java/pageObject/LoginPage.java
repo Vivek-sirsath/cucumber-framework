@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
-	WebDriver ldriver;
+	public WebDriver ldriver;
 	
 	public LoginPage(WebDriver rdriver) {
 		
@@ -34,10 +34,12 @@ public class LoginPage {
 	
 	// Perform action on web elements
 	public void enterEmail(String emailAddress) {
+		emailField.clear();
 		emailField.sendKeys(emailAddress);
 	}
 	
 	public void enterPassword(String pwd) {
+		passwordField.clear();
 		passwordField.sendKeys(pwd);
 	}
 	
