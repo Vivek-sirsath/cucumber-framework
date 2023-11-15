@@ -12,117 +12,109 @@ public class SearchCustomerPage {
 
 	WebDriver ldriver;
 
-	public SearchCustomerPage(WebDriver rDriver)
-	{
-		ldriver=rDriver;
+	public SearchCustomerPage(WebDriver rDriver) {
+		ldriver = rDriver;
 
 		PageFactory.initElements(rDriver, this);
 	}
-	
-	@FindBy(id="SearchEmail")
+
+	@FindBy(id = "SearchEmail")
 	WebElement emailAdd;
 
-	@FindBy(id="search-customers")
+	@FindBy(id = "search-customers")
 	WebElement searchBtn;
 
-	@FindBy(xpath="//table[@role='grid']")
+	@FindBy(xpath = "//table[@role='grid']")
 	WebElement searchResult;
 
-	@FindBy(xpath="//table[@id='customers-grid']//tbody/tr") // give total no of rows
+	@FindBy(xpath = "//table[@id='customers-grid']//tbody/tr") // give total no of rows
 	List<WebElement> tableRows;
 
-	/*@FindBy(xpath="//table[@id='customers-grid']//tbody/tr[1]/td") // give total no of columns
-	List<WebElement> tableColumns;*/
+	/*
+	 * @FindBy(xpath="//table[@id='customers-grid']//tbody/tr[1]/td") // give total
+	 * no of columns List<WebElement> tableColumns;
+	 */
 
-	@FindBy(id="SearchFirstName")
+	@FindBy(id = "SearchFirstName")
 	WebElement firstName;
 
-	@FindBy(id="SearchLastName")
+	@FindBy(id = "SearchLastName")
 	WebElement lastName;
-	
-	//action method to enter email address
-		public void enterEmailAdd(String email)
+
+	// action method to enter email address
+	public void enterEmailAdd(String email) {
+		emailAdd.sendKeys(email);
+	}
+
+	// action method to perform click action on search button
+	public void clickOnSearchButton() {
+		searchBtn.click();
+
+	}
+
+	public boolean searchCustomerByEmail(String email) {
+		boolean found = false;
+
+		// total no. of rows in a grid
+		int ttlRows = tableRows.size();
+
+		// total no. of columns
+		// int ttlColumns = tableColumns.size();
+
+		// int i=0 (first row is header)
+		// Hence we need to start with 2nd row
+
+		for (int i = 1; i <= ttlRows; i++)// to iterate all the rows of the grid
 		{
-			emailAdd.sendKeys(email);
-		}
+			System.out.println("Searching row:" + i);
 
-		//action method to perform click action on search button
-		public void clickOnSearchButton()
-		{
-			searchBtn.click();
-			
-		}
+			WebElement webElementEmail = ldriver
+					.findElement(By.xpath("//table[@id='customers-grid']//tbody/tr[" + i + "]/td[2]"));
+			String actualEmailAdd = webElementEmail.getText();
+			System.out.println(actualEmailAdd);
 
-
-		public boolean searchCustomerByEmail(String email)
-		{
-			boolean found = false;
-
-			//total no. of rows in a grid
-			int ttlRows = tableRows.size();
-
-
-			//total no. of columns
-			//int ttlColumns = tableColumns.size();
-			
-			// int i=0 (first row is header)
-			// Hence we need to start with 2nd row
-
-			for(int i=1;i<=ttlRows;i++)//to iterate all the rows of the grid
-			{
-				System.out.println("Searching row:" +i );
-
-				WebElement webElementEmail = ldriver.findElement(By.xpath("//table[@id='customers-grid']//tbody/tr[" + i  + "]/td[2]"));
-				String actualEmailAdd = webElementEmail.getText();
-				System.out.println(actualEmailAdd);
-
-				if(actualEmailAdd.equals(email))
-				{
-					found=true;
-				}
-
-
+			if (actualEmailAdd.equals(email)) {
+				found = true;
 			}
 
-			return found;
-
-		}
-		///////////////////////search customer by name///////////////////////////////
-		//action method to enter first name
-		public void enterFirstName(String firstNameText)
-		{
-			firstName.sendKeys(firstNameText);
 		}
 
-		//action method to enter last name
-		public void enterLastName(String LastNameText)
+		return found;
+
+	}
+
+	/////////////////////// search customer by name///////////////////////////////
+
+	// action method to enter first name
+	public void enterFirstName(String firstNameText) {
+		firstName.sendKeys(firstNameText);
+	}
+
+	// action method to enter last name
+	public void enterLastName(String LastNameText) {
+		lastName.sendKeys(LastNameText);
+	}
+
+	public boolean searchCustomerByName(String name) {
+		boolean found = false;
+
+		// total no. of rows in a grid
+		int ttlRows = tableRows.size();
+
+		for (int i = 1; i <= ttlRows; i++)// to iterate all the rows of the grid
 		{
-			lastName.sendKeys(LastNameText);
-		}
+			WebElement webElementName = ldriver
+					.findElement(By.xpath("//table[@id='customers-grid']//tbody/tr[" + i + "]/td[3]"));
+			String actualName = webElementName.getText();
 
-		public boolean searchCustomerByName(String name)
-		{
-			boolean found = false;
-
-			//total no. of rows in a grid
-			int ttlRows = tableRows.size();
-
-
-			for(int i=1;i<=ttlRows;i++)//to iterate all the rows of the grid
-			{
-				WebElement webElementName = ldriver.findElement(By.xpath("//table[@id='customers-grid']//tbody/tr[" + i  + "]/td[3]"));
-				String actualName = webElementName.getText();
-
-				if(actualName.equals(name))
-				{
-					found=true;
-					break;
-				}
-
-
+			if (actualName.equals(name)) {
+				found = true;
+				break;
 			}
 
-			return found;
-
 		}
+
+		return found;
+
+	}
 }

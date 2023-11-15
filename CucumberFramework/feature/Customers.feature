@@ -17,16 +17,16 @@
 ## (Comments)
 #Sample Feature Definition Template
 @tag
-Feature: Add new customer
-  I want to use this template for adding new customer 
+Feature: Customers
 
-  @tag1
-  Scenario: Add new customer functionality
+Background: Common steps ffor all scenarios
     Given User launch chrome browser
     When User opens URL "https://admin-demo.nopcommerce.com/login"
     And User enters Email as "admin@yourstore.com" and password as "admin"
     And Click on Login
     Then User can see dashboard
+  
+  Scenario: Add new customer functionality
     When User click on Customers dropdown
     And User click on Customers option
     And User clicks on Add New button
@@ -36,15 +36,20 @@ Feature: Add new customer
     Then User can see confirmation message "The new customer has been added successfully."
     And Close browser
     
-  Scenario: Search customer functionality
-    Given User launch chrome browser
-    When User opens URL "https://admin-demo.nopcommerce.com/login"
-    And User enters Email as "admin@yourstore.com" and password as "admin"
-    And Click on Login
-    Then User can see dashboard
+  Scenario: Search customer by email functionality
     When User click on Customers dropdown
     And User click on Customers option
     And Enter customer email
     When Click on search button
     Then User should found email in search table
     And Close browser
+
+  Scenario: Search customer by name functionality
+    When User click on Customers dropdown
+    And User click on Customers option
+    And Enter customer FirstName
+    And Enter customer LastName
+    When Click on search button
+    Then User should found name in search table
+    And Close browser
+    

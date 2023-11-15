@@ -95,15 +95,16 @@ public class StepDef {
 	@When("User click on Customers dropdown")
 	public void user_click_on_customers_dropdown() {
 		addNewCustPg.clickOnCustomersDropdownMenu();
+
 		
-	/*	
-		// Accurate way to handle exception message in Try-Catch block
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Error message is:- " + e.getMessage());
-		}*/
+		 // Accurate way to handle exception message in Try-Catch block 
+		 try {
+		  Thread.sleep(3000); 
+		 } catch (InterruptedException e) { 
+			 // TODO Auto-generated block
+		  System.out.println("Error message is:- " + e.getMessage()); 
+		 }
+		 
 	}
 
 	@When("User click on Customers option")
@@ -167,7 +168,7 @@ public class StepDef {
 
 	}
 
-/////////////////////////// Search Customer Page ///////////////////////////////////////////
+/////////////////////////// Search Customer by Email ///////////////////////////////////////////
 
 	@When("Enter customer email")
 	public void enter_customer_email() {
@@ -203,5 +204,27 @@ public class StepDef {
 
 		}
 	}
+/////////////////////////// Search Customer by Name ///////////////////////////////////////////
 
+	@When("Enter customer FirstName")
+	public void enter_customer_first_name() {
+		searchCustPg.enterFirstName("Victoria");
+	}
+
+	@When("Enter customer LastName")
+	public void enter_customer_last_name() {
+		searchCustPg.enterLastName("Terces");
+	}
+
+	@Then("User should found name in search table")
+	public void user_should_found_name_in_search_table() {
+		String expectedName = "Victoria Terces";
+		
+		if(searchCustPg.searchCustomerByName(expectedName) == true) {
+			Assert.assertTrue(true);
+		}
+		else {
+			Assert.assertTrue(false);
+		}
+	}
 }
