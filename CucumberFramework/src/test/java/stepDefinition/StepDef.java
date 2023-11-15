@@ -50,9 +50,8 @@ public class StepDef {
 		driver.close();
 	}
 
-	/////////////////////////////// Login Feature
-	/////////////////////////////// ////////////////////////////////////
-
+	/////////////// Login Feature ///////////////////
+	 
 	@Then("The page title should be {string}")
 	public void the_page_title_should_be(String expectedTitle) {
 		String actualTitle = driver.getTitle();
