@@ -24,7 +24,7 @@ import io.cucumber.junit.CucumberOptions;
 		 * 
 		 */
 		monochrome = true, 
-		tags = "@sanity",
+		tags = "@regression",
         plugin = { "pretty", "html:Cucumber-Reports/report_html.html" }
 	  )
 //		plugin = { "pretty", "json:Cucumber-Reports/report_json.json" })

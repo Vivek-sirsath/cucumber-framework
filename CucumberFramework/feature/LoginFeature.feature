@@ -27,7 +27,7 @@ Feature: Login
 
 # Test Steps -
 
-  @sanity
+  @sanity @regression
   Scenario: Successful login with valid credentials
     Given User launch chrome browser
     When User opens URL "https://admin-demo.nopcommerce.com/login"
