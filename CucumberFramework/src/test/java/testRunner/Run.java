@@ -7,7 +7,14 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = ".//feature/Customers.feature", 
+@CucumberOptions
+      (		
+//    	 To execute all the Feature Files present in 'feature' folder	  
+//		 features = ".//feature/",
+//		 To execute specific Feature Files present in 'feature' folder	
+		 features = {".//feature/Customers.feature", ".//feature/LoginFeature.feature"},
+    		  
+//    	 features = ".//feature/Customers.feature", 
          glue = "stepDefinition", 
          dryRun = false,
 		/*
@@ -17,9 +24,10 @@ import io.cucumber.junit.CucumberOptions;
 		 * 
 		 */
 		monochrome = true, 
-        plugin = { "pretty", "html:Cucumber-Reports/report_html.html" })
+		tags = "@sanity",
+        plugin = { "pretty", "html:Cucumber-Reports/report_html.html" }
+	  )
 //		plugin = { "pretty", "json:Cucumber-Reports/report_json.json" })
-
 
 
 public class Run {

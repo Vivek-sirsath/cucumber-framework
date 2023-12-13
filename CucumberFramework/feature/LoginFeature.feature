@@ -26,6 +26,8 @@ Feature: Login
   I want to use this template for LoginFeature file
 
 # Test Steps -
+
+  @sanity
   Scenario: Successful login with valid credentials
     Given User launch chrome browser
     When User opens URL "https://admin-demo.nopcommerce.com/login"
@@ -36,6 +38,7 @@ Feature: Login
     Then The page should be "Your store. Login"
     And Close browser
 
+ @regression
  Scenario Outline: Successful login with valid credentials by DDT
     Given User launch chrome browser
     When User opens URL "https://admin-demo.nopcommerce.com/login"

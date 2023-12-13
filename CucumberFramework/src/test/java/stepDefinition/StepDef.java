@@ -11,12 +11,9 @@ import pageObject.AddNewCustomerPage;
 import pageObject.LoginPage;
 import pageObject.SearchCustomerPage;
 
-public class StepDef {
+public class StepDef extends BaseClass {
 
-	public WebDriver driver;
-	public LoginPage loginPg;
-	public AddNewCustomerPage addNewCustPg;
-	public SearchCustomerPage searchCustPg;
+	
 
 	@Given("User launch chrome browser")
 	public void user_launch_chrome_browser() {
@@ -134,8 +131,8 @@ public class StepDef {
 
 	@When("User enter customer info")
 	public void user_enter_customer_info() {
-		addNewCustPg.enterEmail("vrs19@gmail.com");
-//		addNewCustPg.enterEmail(generateEmailId() + "@gmail.com");
+//		addNewCustPg.enterEmail("vrs19@gmail.com");
+		addNewCustPg.enterEmail(generateEmailId() + "@gmail.com");
 		addNewCustPg.enterPassword("test1");
 		addNewCustPg.enterFirstName("Prachi");
 		addNewCustPg.enterLastName("Gupta");
@@ -192,6 +189,9 @@ public class StepDef {
 	public void user_should_found_email_in_search_table() {
 
 		String expectedEmail = "victoria_victoria@nopCommerce.com";
+
+//		We can also use Assertion instead of if-else
+//		Assert.assertTrue(searchCustPg.searchCustomerByEmail(expectedEmail));
 
 		if (searchCustPg.searchCustomerByEmail(expectedEmail) == true) {
 			Assert.assertTrue(true);

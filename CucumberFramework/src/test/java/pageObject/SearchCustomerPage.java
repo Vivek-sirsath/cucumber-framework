@@ -30,10 +30,10 @@ public class SearchCustomerPage {
 	@FindBy(xpath = "//table[@id='customers-grid']//tbody/tr") // give total no of rows
 	List<WebElement> tableRows;
 
-	/*
-	 * @FindBy(xpath="//table[@id='customers-grid']//tbody/tr[1]/td") // give total
-	 * no of columns List<WebElement> tableColumns;
-	 */
+	
+//	@FindBy(xpath="//table[@id='customers-grid']//tbody/tr[1]/td") // give total no of columns 
+//	List<WebElement> tableColumns;
+	 
 
 	@FindBy(id = "SearchFirstName")
 	WebElement firstName;
@@ -61,8 +61,8 @@ public class SearchCustomerPage {
 		// total no. of columns
 		// int ttlColumns = tableColumns.size();
 
-		// int i=0 (first row is header)
-		// Hence we need to start with 2nd row
+		// int i = 0 (first row is header)
+		// Hence we need to start with 2nd row (i.e. i = 1)
 
 		for (int i = 1; i <= ttlRows; i++)// to iterate all the rows of the grid
 		{

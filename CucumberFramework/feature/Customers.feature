@@ -19,13 +19,14 @@
 @tag
 Feature: Customers
 
-Background: Common steps ffor all scenarios
+Background: Common steps for all scenarios
     Given User launch chrome browser
     When User opens URL "https://admin-demo.nopcommerce.com/login"
     And User enters Email as "admin@yourstore.com" and password as "admin"
     And Click on Login
     Then User can see dashboard
   
+  @sanity
   Scenario: Add new customer functionality
     When User click on Customers dropdown
     And User click on Customers option
@@ -35,7 +36,8 @@ Background: Common steps ffor all scenarios
     And Click on save button
     Then User can see confirmation message "The new customer has been added successfully."
     And Close browser
-    
+   
+  @regression 
   Scenario: Search customer by email functionality
     When User click on Customers dropdown
     And User click on Customers option
@@ -44,6 +46,7 @@ Background: Common steps ffor all scenarios
     Then User should found email in search table
     And Close browser
 
+  @regression
   Scenario: Search customer by name functionality
     When User click on Customers dropdown
     And User click on Customers option
