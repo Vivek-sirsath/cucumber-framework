@@ -1,25 +1,39 @@
 package stepDefinition;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
-import io.cucumber.java.en.*;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import pageObject.AddNewCustomerPage;
 import pageObject.LoginPage;
 import pageObject.SearchCustomerPage;
 
 public class StepDef extends BaseClass {
 
-	
+	@Before // Scenario Hook
+	public void setup() {
+		System.setProperty("webdriver.chrome.driver", "E:\\Educational\\chromedriver.exe");
+		driver = new ChromeDriver();
+		System.out.println("Setup method executed");
+	}
 
 	@Given("User launch chrome browser")
 	public void user_launch_chrome_browser() {
-		System.setProperty("webdriver.chrome.driver", "E:\\Educational\\chromedriver.exe");
+
 //		WebDriverManager.chromedriver().setup();	
-		driver = new ChromeDriver();
+
 		loginPg = new LoginPage(driver); // Here we've to pass object of WebDriver
 		addNewCustPg = new AddNewCustomerPage(driver);
 		searchCustPg = new SearchCustomerPage(driver);
@@ -48,7 +62,7 @@ public class StepDef extends BaseClass {
 	}
 
 	/////////////// Login Feature ///////////////////
-	 
+
 	@Then("The page title should be {string}")
 	public void the_page_title_should_be(String expectedTitle) {
 		String actualTitle = driver.getTitle();
@@ -92,15 +106,14 @@ public class StepDef extends BaseClass {
 	public void user_click_on_customers_dropdown() {
 		addNewCustPg.clickOnCustomersDropdownMenu();
 
-		
-		 // Accurate way to handle exception message in Try-Catch block 
-		 try {
-		  Thread.sleep(3000); 
-		 } catch (InterruptedException e) { 
-			 // TODO Auto-generated block
-		  System.out.println("Error message is:- " + e.getMessage()); 
-		 }
-		 
+		// Accurate way to handle exception message in Try-Catch block
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated block
+			System.out.println("Error message is:- " + e.getMessage());
+		}
+
 	}
 
 	@When("User click on Customers option")
@@ -218,12 +231,37 @@ public class StepDef extends BaseClass {
 	@Then("User should found name in search table")
 	public void user_should_found_name_in_search_table() {
 		String expectedName = "Victoria Terces";
-		
-		if(searchCustPg.searchCustomerByName(expectedName) == true) {
+
+		if (searchCustPg.searchCustomerByName(expectedName) == true) {
 			Assert.assertTrue(true);
-		}
-		else {
+		} else {
 			Assert.assertTrue(false);
 		}
+	}
+
+	@After // Scenario Hook
+	public void tearDown(Scenario sc) {
+		
+	
+		if (sc.isFailed() == true) {
+//			String screenshotPath = "C:\\Users\\Admin\\git\\cucumber-framework\\CucumberFramework\\screenshots\\failedScreenshot.png";
+			String screenshotPath = ".\\screenshots\\failedScreenshot.png";
+
+			// Convert WebDriver object to take screenshot and Capture screenshot in srcFile
+			File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+			// Move captured file to destination by creating object of File and pass filePath as Parameter
+			File destFile = new File(screenshotPath);
+			
+			try {
+				FileUtils.copyFile(srcFile, destFile);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				System.out.println("Error message at copying screenshot file is: "+ e.getMessage());
+			}
+		}
+		
+		driver.quit();
+		System.out.println("Teardown method executed...");
 	}
 }

@@ -26,7 +26,7 @@ Background: Common steps for all scenarios
     And Click on Login
     Then User can see dashboard
   
-  @sanity
+  @regression
   Scenario: Add new customer functionality
     When User click on Customers dropdown
     And User click on Customers option

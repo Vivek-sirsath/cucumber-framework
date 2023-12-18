@@ -33,7 +33,7 @@ public class LoginPage {
 	
 	
 	// Perform action on web elements
-	public void enterEmail(String emailAddress) {
+	public void enterEmail(String emailAddress){
 		emailField.clear();
 		emailField.sendKeys(emailAddress);
 	}
