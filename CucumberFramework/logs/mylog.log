@@ -1,0 +1,6 @@
+[INFO ] 2023-12-24 01:44:18.510 [main] StepDef - Setup method executed
+[INFO ] 2023-12-24 01:44:23.333 [main] StepDef - Url opened
+[INFO ] 2023-12-24 01:44:23.626 [main] StepDef - Entered email and password
+[INFO ] 2023-12-24 01:44:24.384 [main] StepDef - Clicked n login button
+[INFO ] 2023-12-24 01:44:28.049 [main] StepDef - Screenshot captured
+[INFO ] 2023-12-24 01:44:28.309 [main] StepDef - Teardown method executed

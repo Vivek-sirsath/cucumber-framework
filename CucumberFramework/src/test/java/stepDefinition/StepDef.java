@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -24,9 +25,11 @@ public class StepDef extends BaseClass {
 
 	@Before // Scenario Hook
 	public void setup() {
+		log = LogManager.getLogger("StepDef");
 		System.setProperty("webdriver.chrome.driver", "E:\\Educational\\chromedriver.exe");
 		driver = new ChromeDriver();
 		System.out.println("Setup method executed");
+		log.info("Setup method executed");
 	}
 
 	@Given("User launch chrome browser")
@@ -42,6 +45,7 @@ public class StepDef extends BaseClass {
 	@When("User opens URL {string}")
 	public void user_opens_url(String url) { // URL comes from Feature file
 		driver.get(url);
+		log.info("Url opened");
 
 	}
 
@@ -49,16 +53,19 @@ public class StepDef extends BaseClass {
 	public void user_enters_email_as_and_password_as(String emailID, String password) {
 		loginPg.enterEmail(emailID);
 		loginPg.enterPassword(password);
+		log.info("Entered email and password");
 	}
 
 	@When("Click on Login")
 	public void click_on_login() {
 		loginPg.clickOnLoginButton();
+		log.info("Clicked n login button");
 	}
 
 	@Then("Close browser")
 	public void close_browser() {
 		driver.close();
+		log.info("Closed the browser");
 	}
 
 	/////////////// Login Feature ///////////////////
@@ -72,11 +79,15 @@ public class StepDef extends BaseClass {
 		} else {
 			Assert.assertTrue(false); // Test will Fail
 		}
+		log.info("Page title verified");
 	}
+	
+	
 
 	@When("User click on logout link")
 	public void user_click_on_logout_link() {
 		loginPg.clickOnLogoutLink();
+		log.info("Clicked on logout link");
 	}
 
 	@Then("The page should be {string}")
@@ -113,17 +124,19 @@ public class StepDef extends BaseClass {
 			// TODO Auto-generated block
 			System.out.println("Error message is:- " + e.getMessage());
 		}
-
+		log.info("Clicked on Customers dropdown menu");
 	}
 
 	@When("User click on Customers option")
 	public void user_click_on_customers_option() {
 		addNewCustPg.clickOnCustomersOption();
+		log.info("Clicked on Customers option");
 	}
 
 	@When("User clicks on Add New button")
 	public void user_clicks_on_add_new_button() {
 		addNewCustPg.clickOnAddNewBtn();
+		log.info("Clicked on Add New button");
 	}
 
 	@Then("User can see a form to add new customer page")
@@ -140,6 +153,7 @@ public class StepDef extends BaseClass {
 
 			Assert.assertTrue(false);// fail
 		}
+		log.info("Add new Customer page verified");
 	}
 
 	@When("User enter customer info")
@@ -154,11 +168,14 @@ public class StepDef extends BaseClass {
 		addNewCustPg.enterCompanyName("CodeStudio");
 		addNewCustPg.enterAdminComment("This is Admin content");
 		addNewCustPg.selectVendorFromDropdown("Vendor 1");
+		
+		log.info("Entered customer info");
 	}
 
 	@When("Click on save button")
 	public void click_on_save_button() {
 		addNewCustPg.clickOnSaveButton();
+		log.info("Clicked on save button");
 	}
 
 	@Then("User can see confirmation message {string}")
@@ -260,8 +277,10 @@ public class StepDef extends BaseClass {
 				System.out.println("Error message at copying screenshot file is: "+ e.getMessage());
 			}
 		}
+		log.info("Screenshot captured");
 		
 		driver.quit();
 		System.out.println("Teardown method executed...");
+		log.info("Teardown method executed");
 	}
 }
