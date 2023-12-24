@@ -1,6 +1,41 @@
-[INFO ] 2023-12-24 01:44:18.510 [main] StepDef - Setup method executed
-[INFO ] 2023-12-24 01:44:23.333 [main] StepDef - Url opened
-[INFO ] 2023-12-24 01:44:23.626 [main] StepDef - Entered email and password
-[INFO ] 2023-12-24 01:44:24.384 [main] StepDef - Clicked n login button
-[INFO ] 2023-12-24 01:44:28.049 [main] StepDef - Screenshot captured
-[INFO ] 2023-12-24 01:44:28.309 [main] StepDef - Teardown method executed
+[INFO ] 2023-12-24 23:19:04.569 [main] StepDef - Setup method executed
+[INFO ] 2023-12-24 23:19:07.791 [main] StepDef - Url opened
+[INFO ] 2023-12-24 23:19:08.201 [main] StepDef - Entered email and password
+[INFO ] 2023-12-24 23:19:12.217 [main] StepDef - Clicked n login button
+[INFO ] 2023-12-24 23:19:12.226 [main] StepDef - User can see dashboard test - passed.
+[INFO ] 2023-12-24 23:19:15.960 [main] StepDef - Clicked on Customers dropdown menu
+[INFO ] 2023-12-24 23:19:19.486 [main] StepDef - Clicked on Customers option
+[INFO ] 2023-12-24 23:19:19.883 [main] StepDef - First name entered
+[INFO ] 2023-12-24 23:19:20.097 [main] StepDef - Last name entered
+[INFO ] 2023-12-24 23:19:20.872 [main] StepDef - Clicked on search button.
+[INFO ] 2023-12-24 23:19:22.955 [main] StepDef - User should found name in search table - Passed
+[INFO ] 2023-12-24 23:19:25.383 [main] StepDef - Closed the browser
+[INFO ] 2023-12-24 23:19:25.385 [main] StepDef - Screenshot captured
+[INFO ] 2023-12-24 23:20:39.506 [main] StepDef - Setup method executed
+[INFO ] 2023-12-24 23:20:43.803 [main] StepDef - Url opened
+[INFO ] 2023-12-24 23:20:45.590 [main] StepDef - Entered email and password
+[INFO ] 2023-12-24 23:20:49.003 [main] StepDef - Clicked n login button
+[INFO ] 2023-12-24 23:20:50.077 [main] StepDef - User can see dashboard test - passed.
+[INFO ] 2023-12-24 23:20:53.181 [main] StepDef - Clicked on Customers dropdown menu
+[INFO ] 2023-12-24 23:21:07.848 [main] StepDef - Clicked on Customers option
+[INFO ] 2023-12-24 23:21:08.674 [main] StepDef - First name entered
+[INFO ] 2023-12-24 23:21:08.773 [main] StepDef - Last name entered
+[INFO ] 2023-12-24 23:21:09.016 [main] StepDef - Clicked on search button.
+[INFO ] 2023-12-24 23:21:11.217 [main] StepDef - User should found name in search table - Passed
+[INFO ] 2023-12-24 23:21:11.591 [main] StepDef - Closed the browser
+[INFO ] 2023-12-24 23:21:11.594 [main] StepDef - Screenshot captured
+[INFO ] 2023-12-24 23:21:11.794 [main] StepDef - Teardown method executed
+[INFO ] 2023-12-24 23:23:40.209 [main] StepDef - Setup method executed
+[INFO ] 2023-12-24 23:23:44.447 [main] StepDef - Url opened
+[INFO ] 2023-12-24 23:23:44.724 [main] StepDef - Entered email and password
+[INFO ] 2023-12-24 23:23:49.430 [main] StepDef - Clicked n login button
+[INFO ] 2023-12-24 23:23:51.213 [main] StepDef - User can see dashboard test - passed.
+[INFO ] 2023-12-24 23:23:54.313 [main] StepDef - Clicked on Customers dropdown menu
+[INFO ] 2023-12-24 23:24:07.338 [main] StepDef - Clicked on Customers option
+[INFO ] 2023-12-24 23:24:08.223 [main] StepDef - First name entered
+[INFO ] 2023-12-24 23:24:08.321 [main] StepDef - Last name entered
+[INFO ] 2023-12-24 23:24:08.395 [main] StepDef - Clicked on search button.
+[INFO ] 2023-12-24 23:24:10.582 [main] StepDef - User should found name in search table - Passed
+[INFO ] 2023-12-24 23:24:10.789 [main] StepDef - Closed the browser
+[INFO ] 2023-12-24 23:24:10.792 [main] StepDef - Screenshot captured
+[INFO ] 2023-12-24 23:24:10.871 [main] StepDef - Teardown method executed

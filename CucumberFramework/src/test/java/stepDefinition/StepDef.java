@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 
 import io.cucumber.java.After;
@@ -17,17 +19,49 @@ import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObject.AddNewCustomerPage;
 import pageObject.LoginPage;
 import pageObject.SearchCustomerPage;
+import utilities.ReadConfig;
 
 public class StepDef extends BaseClass {
 
 	@Before // Scenario Hook
 	public void setup() {
+		
+		// Initialize Properties class object created in base class
+		readConfig = new ReadConfig();	
+		
+		// Create a String variable to read the browser value from properties file
+		String browser = readConfig.getBrowser();
+		
+		// Launch browser
+		switch(browser.toLowerCase()) 
+		{		
+		case "chrome":
+			System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromedriver.exe");
+			driver = new ChromeDriver();
+			break;
+			
+		case "msedge":
+			WebDriverManager.edgedriver().setup();
+			driver = new EdgeDriver();
+			break;
+
+		case "firefox":
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver();
+			break;
+			
+		default:
+			driver = null;
+			break;			
+		}
+			
+		// Initialize the Logger class object
 		log = LogManager.getLogger("StepDef");
-		System.setProperty("webdriver.chrome.driver", "E:\\Educational\\chromedriver.exe");
-		driver = new ChromeDriver();
+		
 		System.out.println("Setup method executed");
 		log.info("Setup method executed");
 	}
@@ -76,8 +110,10 @@ public class StepDef extends BaseClass {
 
 		if (actualTitle.equals(expectedTitle)) {
 			Assert.assertTrue(true); // Test will Pass
+			log.warn("Login Fearure: Page title matched");
 		} else {
 			Assert.assertTrue(false); // Test will Fail
+			log.warn("Login Fearure: Page title not matched");
 		}
 		log.info("Page title verified");
 	}
@@ -103,12 +139,13 @@ public class StepDef extends BaseClass {
 		String expectedTitle = "Dashboard / nopCommerce administration";
 
 		if (actualTitle.equals(expectedTitle)) {
-//			log.info("user can view dashboard test passed.");
+
 			Assert.assertTrue(true); // Pass
+			log.info("User can see dashboard test - passed.");
 
 		} else {
 			Assert.assertTrue(false); // Fail
-//			log.warn("user can view dashboard test failed.");
+			log.warn("User can see dashboard test - failed.");
 
 		}
 	}
@@ -145,21 +182,22 @@ public class StepDef extends BaseClass {
 		String expectedTitle = "Add a new customer / nopCommerce administration";
 
 		if (actualTitle.equals(expectedTitle)) {
-//			log.info("User can view Add new customer page- passed");
+			log.info("User can see Add new customer page - passed");
 
 			Assert.assertTrue(true);// pass
 		} else {
-//			log.info("User can view Add new customer page- failed");
+			log.info("User can see Add new customer page - failed");
 
 			Assert.assertTrue(false);// fail
 		}
-		log.info("Add new Customer page verified");
+		log.info("Add new Customer page test verified");
 	}
 
 	@When("User enter customer info")
 	public void user_enter_customer_info() {
 //		addNewCustPg.enterEmail("vrs19@gmail.com");
 		addNewCustPg.enterEmail(generateEmailId() + "@gmail.com");
+//		generateEmailId() method is called from Base Class
 		addNewCustPg.enterPassword("test1");
 		addNewCustPg.enterFirstName("Prachi");
 		addNewCustPg.enterLastName("Gupta");
@@ -183,10 +221,10 @@ public class StepDef extends BaseClass {
 		String bodyTagText = driver.findElement(By.tagName("Body")).getText();
 		if (bodyTagText.contains(expectedConfirmationMessage)) {
 			Assert.assertTrue(true);// pass
-//			log.info("User can view confirmation message - passed");
+			log.info("User can view confirmation message - passed");
 
 		} else {
-//			log.warn("User can view confirmation message - failed");
+			log.warn("User can view confirmation message - failed");
 
 			Assert.assertTrue(false);// fail
 
@@ -199,19 +237,19 @@ public class StepDef extends BaseClass {
 	@When("Enter customer email")
 	public void enter_customer_email() {
 		searchCustPg.enterEmailAdd("victoria_victoria@nopCommerce.com");
-//	    log.info("Email address entered");
+	    log.info("Email address entered");
 	}
 
 	@When("Click on search button")
 	public void click_on_search_button() {
 		searchCustPg.clickOnSearchButton();
-//        log.info("Clicked on search button.");
+        log.info("Clicked on search button.");
 
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Error message: " + e.getMessage());
 		}
 	}
 
@@ -225,12 +263,12 @@ public class StepDef extends BaseClass {
 
 		if (searchCustPg.searchCustomerByEmail(expectedEmail) == true) {
 			Assert.assertTrue(true);
-//			log.info("User should found Email in the Search table - passed");
-
-		} else {
-//			log.info("User should found Email in the Search table - passed");
+			log.info("User should found Email in the Search table - Passed");
+			
+		} else {	
+			
 			Assert.assertTrue(false);
-
+			log.info("User should found Email in the Search table - Failed");
 		}
 	}
 /////////////////////////// Search Customer by Name ///////////////////////////////////////////
@@ -238,11 +276,13 @@ public class StepDef extends BaseClass {
 	@When("Enter customer FirstName")
 	public void enter_customer_first_name() {
 		searchCustPg.enterFirstName("Victoria");
+		log.info("First name entered");
 	}
 
 	@When("Enter customer LastName")
 	public void enter_customer_last_name() {
 		searchCustPg.enterLastName("Terces");
+		log.info("Last name entered");
 	}
 
 	@Then("User should found name in search table")
@@ -251,8 +291,10 @@ public class StepDef extends BaseClass {
 
 		if (searchCustPg.searchCustomerByName(expectedName) == true) {
 			Assert.assertTrue(true);
+			log.info("User should found name in search table - Passed");
 		} else {
 			Assert.assertTrue(false);
+			log.info("User should found name in search table - Failed");
 		}
 	}
 

@@ -46,7 +46,7 @@ Background: Common steps for all scenarios
     Then User should found email in search table
     And Close browser
 
-  @regression
+  @sanity
   Scenario: Search customer by name functionality
     When User click on Customers dropdown
     And User click on Customers option

@@ -13,8 +13,11 @@ import io.cucumber.junit.CucumberOptions;
 //		 features = ".//feature/",
     		  
 //		 To execute specific Feature Files present in 'feature' folder	
-//    	 features = ".//feature/Customers.feature", 
-		 features = {".//feature/Customers.feature", ".//feature/LoginFeature.feature"},
+    	 features = ".//feature/Customers.feature", 
+    		  
+//		 features = {".//feature/Customers.feature", ".//feature/LoginFeature.feature"},
+    		  
+//		 features = {".//feature/LoginFeature.feature"},
          glue = "stepDefinition", 
          dryRun = false,
 		/*
@@ -24,7 +27,7 @@ import io.cucumber.junit.CucumberOptions;
 		 * 
 		 */
 		monochrome = true, 
-		tags = "@sanity",
+		tags = "@sanity", // Scenarios under specified tags will execute.
         plugin = { "pretty", "html:Cucumber-Reports/report_html.html" }
 	  )
 //		plugin = { "pretty", "json:Cucumber-Reports/report_json.json" })
